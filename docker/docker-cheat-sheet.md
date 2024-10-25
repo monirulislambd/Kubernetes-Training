@@ -1,6 +1,6 @@
 # Docker CLI cheatsheet:
 
-```markdown
+
 # Docker CLI Cheatsheet
 
 This cheatsheet provides common Docker CLI commands for managing containers, images, and viewing information and stats.
@@ -11,8 +11,8 @@ Start a new container from an image:
 ```bash
 docker run IMAGE
 docker run nginx
-```
 
+```
 ...and assign it a name:
 ```bash
 docker run --name CONTAINER IMAGE
