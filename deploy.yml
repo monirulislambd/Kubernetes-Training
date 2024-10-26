@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: nginx-deployment-test
+  namespace: test-ns
   labels:
-    app: deploy-test
-  name: deploy-test
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
-      app: deploy-test
-  strategy: {}
+      app: nginx
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: deploy-test
+        app: nginx
     spec:
       containers:
-      - image: nginx
-        name: nginx
-        resources: {}
-status: {}
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
