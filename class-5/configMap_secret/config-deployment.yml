@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-todo-deployment
+  labels:
+    app: django-todo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-todo
+  template:
+    metadata:
+      labels:
+        app: django-todo
+    spec:
+      containers:
+      - name: django-todo
+        image: nahid0002/django-todo-app:latest
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+          - name: db-connection
+            mountPath: /opt
+          - name: db-connection-pass
+            mountPath: "etc/db-connect-pass"
+            
+      volumes:
+       - name: db-connection
+         configMap:
+          name: app-cm
+       - name: db-connection-pass
+         secret:
+          secretName: db-secret
