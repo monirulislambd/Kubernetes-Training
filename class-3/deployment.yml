@@ -36,4 +36,21 @@ spec:
       nodePort: 30007
   #type: ClusterIP
   type:  NodePort
-  
+
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+
+spec:
+  selector:
+   app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30007
+  #type: ClusterIP
+  type:  NodePort

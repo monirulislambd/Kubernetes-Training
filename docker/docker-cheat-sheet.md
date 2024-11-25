@@ -1,6 +1,3 @@
-# Docker CLI cheatsheet:
-
-
 # Docker CLI Cheatsheet
 
 This cheatsheet provides common Docker CLI commands for managing containers, images, and viewing information and stats.
